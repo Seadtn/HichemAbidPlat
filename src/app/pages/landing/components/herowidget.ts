@@ -107,9 +107,9 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class HeroWidget {
     images = [
-        '/assets/images/slider/slide1.jpg', 
-        '/assets/images/slider/slide2.jpg', 
-        '/assets/images/slider/slide3.jpg'
+        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide1.jpg', 
+        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide2.jpg', 
+        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide3.jpg'
     ];
 
     buttonState: 'normal' | 'hover' = 'normal';

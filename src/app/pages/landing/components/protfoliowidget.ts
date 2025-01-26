@@ -59,9 +59,9 @@ import { RippleModule } from 'primeng/ripple';
 })
 export class PortfolioWidget {
     images = [
-        '/assets/images/slider/slide1.jpg', 
-        '/assets/images/slider/slide2.jpg', 
-        '/assets/images/slider/slide3.jpg',  
+        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide1.jpg', 
+        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide2.jpg', 
+        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide3.jpg',  
     ];
 
     displayDialog = false;
