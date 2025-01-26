@@ -28,10 +28,10 @@ interface MenuChangeEvent {
 export class LayoutService {
     _config: layoutConfig = {
         preset: 'Aura',
-        primary: 'emerald',
+        primary: 'teal',
         surface: null,
         darkTheme: false,
-        menuMode: 'static'
+        menuMode: 'overlay'
     };
 
     _state: LayoutState = {
@@ -79,6 +79,13 @@ export class LayoutService {
     private initialized = false;
 
     constructor() {
+        // Load the theme preference from localStorage when the service is initialized
+        const savedTheme = localStorage.getItem('darkTheme');
+        if (savedTheme !== null) {
+            this._config.darkTheme = savedTheme === 'true';  // Set darkTheme based on saved value
+            this.layoutConfig.set(this._config);  // Update the layoutConfig signal
+        }
+
         effect(() => {
             const config = this.layoutConfig();
             if (config) {
@@ -126,6 +133,9 @@ export class LayoutService {
         } else {
             document.documentElement.classList.remove('app-dark');
         }
+
+        // Save the theme preference to localStorage
+        localStorage.setItem('darkTheme', _config.darkTheme?.toString() || 'false');
     }
 
     private onTransitionEnd() {

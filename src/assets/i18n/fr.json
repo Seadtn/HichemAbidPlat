@@ -1,6 +1,14 @@
 {
-    "HELLO": "Bonjour",
-    "WELCOME": "Bienvenue",
-    "HOME": "Accueil"
-
-  }
+    "landingPage": {
+        "topbar": {
+            "home": "Accueil",
+            "about": "À Propos",
+            "services": "Nos Services",
+            "portfolio": "Portfolio",
+            "contact": "Contact",
+            "login": "Se Connecter",
+            "register": "S'inscrire",
+            "auto" :"Auto\u00A0École"
+        }
+    }
+}

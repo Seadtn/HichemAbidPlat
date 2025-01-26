@@ -10,19 +10,25 @@ import { FeaturesWidget } from './components/featureswidget';
 import { HighlightsWidget } from './components/highlightswidget';
 import { PricingWidget } from './components/pricingwidget';
 import { FooterWidget } from './components/footerwidget';
+import { PortfolioWidget } from "./components/protfoliowidget";
+import { ContactUsWidget } from "./components/contactuswidget";
+import { AboutUsWidget } from "./components/aboutuswidget";
 
 @Component({
     selector: 'app-landing',
     standalone: true,
-    imports: [RouterModule, TopbarWidget, HeroWidget, FeaturesWidget, HighlightsWidget, PricingWidget, FooterWidget, RippleModule, StyleClassModule, ButtonModule, DividerModule],
+    imports: [RouterModule, TopbarWidget, HeroWidget, FeaturesWidget, PricingWidget, FooterWidget, RippleModule, StyleClassModule, ButtonModule, DividerModule, PortfolioWidget, ContactUsWidget, AboutUsWidget],
     template: `
         <div class="bg-surface-0 dark:bg-surface-900">
             <div id="home" class="landing-wrapper overflow-hidden">
                 <topbar-widget class="py-6 px-6 mx-0 md:mx-12 lg:mx-20 lg:px-20 flex items-center justify-between relative lg:static" />
                 <hero-widget />
                 <features-widget />
-                <highlights-widget />
+                <portfolio-widget/>
+                <!-- <highlights-widget /> -->
                 <pricing-widget />
+                <contact-us-widget/>
+                <about-us-widget/>
                 <footer-widget />
             </div>
         </div>

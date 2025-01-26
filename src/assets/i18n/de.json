@@ -1,5 +1,14 @@
 {
-    "HELLO": "Hallo",
-    "WELCOME": "Willkommen",
-    "HOME": "Startseite"
-  }
+    "landingPage": {
+        "topbar": {
+            "home": "Zuhause",
+            "about": "Über",
+            "services": "Dienstleistungen",
+            "portfolio": "Portfolio",
+            "contact": "Kontakt",
+            "login": "Anmeldung",
+            "register": "Registrieren",
+            "auto" :"Fahrschule"          
+        }
+    }
+}

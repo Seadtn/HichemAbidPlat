@@ -16,7 +16,6 @@ import {
   FakeMissingTranslationHandler
 } from '@ngx-translate/core';
 import { TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-compiler';
-import { from } from 'rxjs';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
