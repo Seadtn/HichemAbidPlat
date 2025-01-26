@@ -1,0 +1,14 @@
+{
+    "landingPage": {
+        "topbar": {
+            "home": "Home",
+            "about": "About us",
+            "services": "Our Services",
+            "portfolio": "Portfolio",
+            "contact": "Contact",
+            "login": "Login",
+            "register": "Register",
+            "auto" :"Driving\u00A0school"
+        }
+    }
+}
