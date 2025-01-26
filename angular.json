@@ -20,10 +20,7 @@
                         "outputPath": "dist/sakai-ng",
                         "index": "src/index.html",
                         "browser": "src/main.ts",
-                        "polyfills": [
-                          "zone.js",
-                          "@angular/localize/init"
-                        ],
+                        "polyfills": ["zone.js", "@angular/localize/init"],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
@@ -34,17 +31,15 @@
                             {
                                 "glob": "**/*",
                                 "input": "src/assets/i18n",
-                                "output": "/assets/i18n/"
+                                "output": "assets/i18n/"
                             },
                             {
                                 "glob": "**/*",
                                 "input": "src/assets/images",
-                                "output": "/assets/images/"
+                                "output": "assets/images/"
                             }
                         ],
-                        "styles": [
-                            "src/styles.scss"
-                        ],
+                        "styles": ["src/styles.scss"],
                         "scripts": []
                     },
                     "configurations": {
@@ -107,11 +102,7 @@
                 "test": {
                     "builder": "@angular-devkit/build-angular:karma",
                     "options": {
-                        "polyfills": [
-                          "zone.js",
-                          "zone.js/testing",
-                          "@angular/localize/init"
-                        ],
+                        "polyfills": ["zone.js", "zone.js/testing", "@angular/localize/init"],
                         "tsConfig": "tsconfig.spec.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [
@@ -120,9 +111,7 @@
                                 "input": "public"
                             }
                         ],
-                        "styles": [
-                            "src/styles.scss"
-                        ],
+                        "styles": ["src/styles.scss"],
                         "scripts": []
                     }
                 }
@@ -130,6 +119,6 @@
         }
     },
     "cli": {
-      "analytics": "27833b8c-42dd-4b7d-b03a-1e5586f22d0e"
+        "analytics": "27833b8c-42dd-4b7d-b03a-1e5586f22d0e"
     }
 }
