@@ -5,6 +5,7 @@ import { RippleModule } from 'primeng/ripple';
 import { CarouselModule } from 'primeng/carousel';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { TranslateModule } from '@ngx-translate/core';
+import { environment, Environment } from '../../../../environments/environment';
 
 @Component({
     selector: 'hero-widget',
@@ -14,7 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
         ButtonModule, 
         RippleModule, 
         CarouselModule,
-        TranslateModule
+        TranslateModule,
     ],
     animations: [
         trigger('fadeInUp', [
@@ -106,11 +107,16 @@ import { TranslateModule } from '@ngx-translate/core';
     `
 })
 export class HeroWidget {
-    images = [
-        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide1.jpg', 
-        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide2.jpg', 
-        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide3.jpg'
-    ];
+    images: string[] = [];
 
+
+    ngOnInit() {
+        const baseUrl = environment.getImagesURLs();
+        this.images = [
+            `${baseUrl}slide1.jpg`,
+            `${baseUrl}slide2.jpg`,
+            `${baseUrl}slide3.jpg`
+        ];
+    }
     buttonState: 'normal' | 'hover' = 'normal';
 }

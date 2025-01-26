@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { RippleModule } from 'primeng/ripple';
+import { environment } from '../../../../environments/environment';
 
 @Component({
     selector: 'portfolio-widget',
@@ -58,11 +59,16 @@ import { RippleModule } from 'primeng/ripple';
     `
 })
 export class PortfolioWidget {
-    images = [
-        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide1.jpg', 
-        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide2.jpg', 
-        'https://seadtn.github.io/HichemAbidPlat/assets/images/slider/slide3.jpg',  
-    ];
+    images: string[] = [];
+    ngOnInit() {
+        const baseUrl = environment.getImagesURLs();
+        debugger;
+        this.images = [
+            `${baseUrl}slide1.jpg`,
+            `${baseUrl}slide2.jpg`,
+            `${baseUrl}slide3.jpg`
+        ];
+    }
 
     displayDialog = false;
     displayGallery = false;

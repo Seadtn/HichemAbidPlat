@@ -9,7 +9,11 @@ export class Environment {
     production= false;
     environmentName =  "development";
     private useHttps = false;
-
+    private use_gh_pages=false;
+    private gh_pages_imagesURLs={
+        deploy:"https://seadtn.github.io/HichemAbidPlat/assets/images/slider/",
+        local:"/assets/images/slider/"
+    }
      private apiUrls = {
         http:"http://localhost:8082/api/v1/hrManagement",
         https:"https://localhost:8082/api/v1/hrManagement",
@@ -18,7 +22,9 @@ export class Environment {
         hubUrl : 'http://localhost:5269/AppHub',
         hubUrlHttps : 'https://localhost:5269/AppHub',
     }
-
+    public getImagesURLs(){
+        return this.use_gh_pages ? this.gh_pages_imagesURLs.deploy : this.gh_pages_imagesURLs.local;
+    }
     public getApiUrl() {
         return this.useHttps ? this.apiUrls.https : this.apiUrls.http;
     }
