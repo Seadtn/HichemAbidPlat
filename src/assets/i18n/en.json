@@ -3,12 +3,13 @@
         "topbar": {
             "home": "Home",
             "about": "About us",
-            "services": "Our Services",
+            "services": "Services",
+            "partnership": "Partnership",
             "portfolio": "Portfolio",
             "contact": "Contact",
             "login": "Login",
             "register": "Register",
-            "auto" :"Driving\u00A0school"
+            "auto" :"Academic\u00A0Center"
         }
     }
 }
