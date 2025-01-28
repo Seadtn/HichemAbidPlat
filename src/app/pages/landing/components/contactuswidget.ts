@@ -13,7 +13,7 @@ import { InputTextarea } from 'primeng/inputtextarea';
         <div id="contact-us" class="py-12 px-6 lg:px-20 mx-0 lg:mx-20">
             <div class="col-span-12 text-center mt-20 mb-6">
                 <div class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl underline decoration-4 decoration-teal-500 hover:cursor-pointer hover:decoration-teal-600 underline-offset-4 transition-colors duration-300 rounded-lg">
-                    Contact Us
+                    Let's Chat!
                 </div>
                 <span class="text-muted-color text-2xl">We'd love to hear from you!</span>
             </div>

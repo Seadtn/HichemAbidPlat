@@ -3,12 +3,13 @@
         "topbar": {
             "home": "Accueil",
             "about": "À Propos",
-            "services": "Nos Services",
+            "services": "Services",
             "portfolio": "Portfolio",
+            "partnership": "Partenariat",
             "contact": "Contact",
             "login": "Se Connecter",
             "register": "S'inscrire",
-            "auto" :"Auto\u00A0École"
+            "auto" :"Centre\u00A0Académique"
         }
     }
 }

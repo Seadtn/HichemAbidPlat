@@ -21,8 +21,8 @@ import { TranslateModule } from '@ngx-translate/core';
                         <div class="flex items-center justify-center bg-yellow-200 mb-4 transition-transform duration-300 group-hover:rotate-12" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
                             <i class="pi pi-fw pi-users !text-2xl text-yellow-700"></i>
                         </div>
-                        <h5 class="mb-2 text-surface-900 dark:text-surface-0 transition-transform duration-300 group-hover:translate-x-2">Personalized Language Coaching</h5>
-                        <span class="text-surface-600 dark:text-surface-200">Tailored one-on-one sessions to accelerate your language learning journey.</span>
+                        <h5 class="mb-2 text-surface-900 dark:text-surface-0 transition-transform duration-300 group-hover:translate-x-2">Explore Courses</h5>
+                        <span class="text-surface-600 dark:text-surface-200">Browse the list of available training sessions on-site at FIMO.</span>
                     </div>
                 </div>
             </div>
@@ -32,8 +32,8 @@ import { TranslateModule } from '@ngx-translate/core';
                         <div class="flex items-center justify-center bg-cyan-200 mb-4" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
                             <i class="pi pi-fw pi-palette !text-2xl text-cyan-700"></i>
                         </div>
-                        <h5 class="mb-2 text-surface-900 dark:text-surface-0">Fresh Design</h5>
-                        <span class="text-surface-600 dark:text-surface-200">Semper risus in hendrerit.</span>
+                        <h5 class="mb-2 text-surface-900 dark:text-surface-0">Book Your Spot</h5>
+                        <span class="text-surface-600 dark:text-surface-200">Secure your place in just a few clicks by selecting the desired course and session.</span>
                     </div>
                 </div>
             </div>
@@ -44,8 +44,8 @@ import { TranslateModule } from '@ngx-translate/core';
                         <div class="flex items-center justify-center bg-indigo-200" style="width: 3.5rem; height: 3.5rem; border-radius: 10px">
                             <i class="pi pi-fw pi-map !text-2xl text-indigo-700"></i>
                         </div>
-                        <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">Well Documented</div>
-                        <span class="text-surface-600 dark:text-surface-200">Non arcu risus quis varius quam quisque.</span>
+                        <div class="mt-6 mb-1 text-surface-900 dark:text-surface-0 text-xl font-semibold">Attend & Learn</div>
+                        <span class="text-surface-600 dark:text-surface-200">Visit the FIMO Academic Center on the scheduled date and time to attend your session.</span>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ import { RippleModule } from 'primeng/ripple';
 import { CarouselModule } from 'primeng/carousel';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'hero-widget',
@@ -14,7 +15,8 @@ import { TranslateModule } from '@ngx-translate/core';
         ButtonModule, 
         RippleModule, 
         CarouselModule,
-        TranslateModule
+        TranslateModule,
+        RouterModule
     ],
     animations: [
         trigger('fadeInUp', [
@@ -45,26 +47,38 @@ import { TranslateModule } from '@ngx-translate/core';
             class="flex flex-col pt-12 px-8 lg:px-24 overflow-hidden relative"
             style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 0, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(195, 227, 250) 0%, rgb(200, 239, 175) 100%); clip-path: ellipse(150% 87% at 93% 13%)"
         >
-            <div class="mx-8 md:mx-24 mt-0 md:mt-8 text-center md:text-left">
+            <div class="mx-8 md:mx-24 mt-20 md:mt-24 text-center md:text-left">
                 <h1 
                     [@fadeInUp] 
                     class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight"
                 >
-                    <span 
-                        [@fadeInUp] 
-                        class="font-light block text-gray-600"
-                    >
-                    {{ 'landingPage.topbar.auto' | translate }}
+                    <span>
+                    Welcome to FIMO Session Booking
                     </span>
-                    By Hichem Abid
                 </h1>
                 
                 <p 
                     [@fadeInUp] 
                     class="font-normal text-xl md:text-2xl leading-normal mt-4 text-gray-700"
+                    style="white-space: pre-line;"
                 >
-                    Get Behind the Wheel with Confidence – Enroll Today and Start Your Journey to Safe, Skillful Driving!
+                    Simplify your learning experience with our online platform! 
                 </p>
+                <p 
+                    [@fadeInUp] 
+                    class="font-normal text-xl md:text-2xl leading-normal mt-4 text-gray-700"
+                    style="white-space: pre-line;"
+                >
+                    Book sessions for courses to attend on-site at the FIMO Academic Center with ease! 
+                </p>
+                <p 
+                    [@fadeInUp] 
+                    class="font-normal text-xl md:text-2xl leading-normal mt-4 text-gray-700"
+                    style="white-space: pre-line;"
+                >
+                    Empowering your education journey is just a click away!
+                </p>
+
                 
                 <button 
                     pButton 
@@ -76,7 +90,9 @@ import { TranslateModule } from '@ngx-translate/core';
                     [rounded]="true" 
                     type="button" 
                     label="Get Started" 
-                    class="!text-xl mt-8 !px-6 !py-3 bg-primary text-white hover:bg-primary-dark transition duration-300 shadow-lg transform active:scale-95"
+                    class="!text-xl mt-8 !px-12 !py-6 bg-primary text-white hover:bg-primary-dark transition duration-300 shadow-lg transform active:scale-95"
+                    routerLink="/auth/login"
+                    
                 ></button>
             </div>
 
@@ -103,9 +119,17 @@ import { TranslateModule } from '@ngx-translate/core';
                 </p-carousel>
             </div>
         </div>
-    `
+
+        
+    `,
 })
 export class HeroWidget {
+    testimonials = [
+        { quote: "This platform has transformed my learning experience!", name: "John Doe", role: "Student" },
+        { quote: "FIMO's sessions are insightful and easy to book.", name: "Jane Smith", role: "Professional" },
+        { quote: "I love the on-site learning experience provided by FIMO.", name: "Alex Johnson", role: "Learner" }
+    ];
+
     images = [
         '/assets/images/slider/slide1.jpg', 
         '/assets/images/slider/slide2.jpg', 
