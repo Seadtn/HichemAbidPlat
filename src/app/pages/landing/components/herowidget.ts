@@ -44,7 +44,7 @@ import { RouterModule } from '@angular/router';
     template: `
         <div
             id="hero"
-            class="flex flex-col pt-12 px-8 lg:px-24 overflow-hidden relative"
+            class="flex flex-col pt-2 px-8 lg:px-24 overflow-hidden relative"
             style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 0, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(195, 227, 250) 0%, rgb(200, 239, 175) 100%); clip-path: ellipse(150% 87% at 93% 13%)"
         >
             <div class="mx-8 md:mx-24 mt-20 md:mt-24 text-center md:text-left">
