@@ -10,7 +10,7 @@ import { AppMenuitem } from './app.menuitem';
     imports: [CommonModule, AppMenuitem, RouterModule],
     template: `<ul class="layout-menu">
         <ng-container *ngFor="let item of model; let i = index">
-            <li app-menuitem *ngIf="!item.separator" [item]="item" [index]="i" [root]="true"></li>
+            <li *ngIf="!item.separator" app-menuitem [item]="item" [index]="i" [root]="true" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: false }"></li>
             <li *ngIf="item.separator" class="menu-separator"></li>
         </ng-container>
     </ul> `
@@ -23,6 +23,74 @@ export class AppMenu {
             {
                 label: 'Home',
                 items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/dashboard'] }]
+            },
+            {
+                label: 'Overview',
+                items: [
+                    {
+                        label: 'Learning Hub',
+                        icon: 'pi pi-fw pi-book',
+                        items: [
+                            { label: 'Course Catalog', icon: 'pi pi-fw pi-bookmark' },
+                            { label: 'Class Sessions', icon: 'pi pi-fw pi-clock' }
+                        ]
+                    },
+                    { label: 'Classes', icon: 'pi pi-fw pi-briefcase', routerLink: ['/dashboard/Classes'] },
+                    { label: 'Groups', icon: 'pi pi-fw pi-users', routerLink: ['/dashboard/Groups'] },
+                    { label: 'Calender', icon: 'pi pi-fw pi-calendar', routerLink: ['/dashboard/Calender'] }
+                ]
+            },
+            {
+                label: 'Users',
+                items: [
+                    {
+                        label: 'Staff',
+                        icon: 'pi pi-fw pi-star',
+                        routerLink: ['/dashboard/users'],
+                        routerLinkActive: 'active',
+                        routerLinkActiveOptions: { exact: true } 
+                    },
+                    {
+                        label: 'Candidates',
+                        icon: 'pi pi-fw pi-users',
+                        routerLink: '/dashboard/users',
+                        queryParams: { type: 'Candidate' },
+                        queryParamsHandling: 'merge',
+                        routerLinkActive: 'active',
+                        routerLinkActiveOptions: { exact: false }
+                    },
+                    {
+                        label: 'Teachers',
+                        icon: 'pi pi-fw pi-users',
+                        routerLink: '/dashboard/users',
+                        queryParams: { type: 'Teacher' },
+                        queryParamsHandling: 'merge',
+                        routerLinkActive: 'active',
+                        routerLinkActiveOptions: { exact: false }
+                    },
+                    {
+                        label: 'Visitors',
+                        icon: 'pi pi-fw pi-users',
+                        routerLink: '/dashboard/users',
+                        queryParams: { type: 'Visitor' },
+                        queryParamsHandling: 'merge',
+                        routerLinkActive: 'active',
+                        routerLinkActiveOptions: { exact: false }
+                    }
+                ]
+            },
+            {
+                label: 'Fees Management',
+                items: [
+                    { label: 'Pending Dues', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['/dashboard/PendingDues'] },
+                    { label: 'Payment History', icon: 'pi pi-fw pi-clock', routerLink: ['/dashboard/PaymentHistory'] },
+                    { label: 'Discounts & Offers', icon: 'pi pi-fw pi-tag', routerLink: ['/dashboard/Discounts'] },
+                    { label: 'Reports', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/dashboard/Reports'] }
+                ]
+            },
+            {
+                label: 'Contact',
+                items: [{ label: 'Messages', icon: 'pi pi-fw pi-envelope', routerLink: ['/dashboard/Messages'] }]
             },
             {
                 label: 'UI Components',
@@ -128,22 +196,6 @@ export class AppMenu {
                                 items: [{ label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark' }]
                             }
                         ]
-                    }
-                ]
-            },
-            {
-                label: 'Get Started',
-                items: [
-                    {
-                        label: 'Documentation',
-                        icon: 'pi pi-fw pi-book',
-                        routerLink: ['/dashboard/documentation']
-                    },
-                    {
-                        label: 'View Source',
-                        icon: 'pi pi-fw pi-github',
-                        url: 'https://github.com/primefaces/sakai-ng',
-                        target: '_blank'
                     }
                 ]
             }

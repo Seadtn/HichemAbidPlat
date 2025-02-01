@@ -442,7 +442,7 @@ export class TableDemo implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.customerService.getCustomersLarge().then((customers) => {
+        this.customerService.getCustomersLarge("Staff").then((customers) => {
             this.customers1 = customers;
             this.loading = false;
 
@@ -450,7 +450,7 @@ export class TableDemo implements OnInit {
             this.customers1.forEach((customer) => (customer.date = new Date(customer.date)));
         });
         this.customerService.getCustomersMedium().then((customers) => (this.customers2 = customers));
-        this.customerService.getCustomersLarge().then((customers) => (this.customers3 = customers));
+        this.customerService.getCustomersLarge("Staff").then((customers) => (this.customers3 = customers));
         this.productService.getProductsWithOrdersSmall().then((data) => (this.products = data));
 
         this.representatives = [
@@ -486,13 +486,13 @@ export class TableDemo implements OnInit {
         if (this.customers3) {
             for (let i = 0; i < this.customers3.length; i++) {
                 const rowData = this.customers3[i];
-                const representativeName = rowData?.representative?.name || '';
+                const representativeName = rowData?.department || '';
 
                 if (i === 0) {
                     this.rowGroupMetadata[representativeName] = { index: 0, size: 1 };
                 } else {
                     const previousRowData = this.customers3[i - 1];
-                    const previousRowGroup = previousRowData?.representative?.name;
+                    const previousRowGroup = previousRowData?.department;
                     if (representativeName === previousRowGroup) {
                         this.rowGroupMetadata[representativeName].size++;
                     } else {
@@ -558,7 +558,7 @@ export class TableDemo implements OnInit {
 
         if (this.customers2) {
             for (let customer of this.customers2) {
-                if (customer.representative?.name === name) {
+                if (customer.department === name) {
                     total++;
                 }
             }

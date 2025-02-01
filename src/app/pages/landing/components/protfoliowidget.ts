@@ -62,7 +62,6 @@ export class PortfolioWidget {
     images: string[] = [];
     ngOnInit() {
         const baseUrl = environment.getImagesURLs();
-        debugger;
         this.images = [
             `${baseUrl}slide1.jpg`,
             `${baseUrl}slide2.jpg`,
