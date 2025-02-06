@@ -65,8 +65,7 @@ interface PendingDue {
                         <p-tag [severity]="getStatusSeverity(due.status)" [value]="due.status"></p-tag>
                     </td>
                     <td *ngIf="due.status !== 'Cleared'">
-                        <button pButton label="Send Reminder" icon="pi pi-bell" class="p-button-sm p-button-warning mr-2"></button>
-                        <button pButton label="Pay Now" icon="pi pi-credit-card" class="p-button-sm p-button-success" (click)="confirmPayment(due, $event)"></button>
+                        <button *ngIf="due.lastReminder !== getCurrentDate()" pButton label="Send Reminder" icon="pi pi-bell" class="p-button-sm p-button-warning mr-2" (click)="sendReminder(due, $event)"></button>                        <button pButton label="Pay Now" icon="pi pi-credit-card" class="p-button-sm p-button-success" (click)="confirmPayment(due, $event)"></button>
                     </td>
                     <td *ngIf="due.status === 'Cleared'">
                         <p>
@@ -95,8 +94,8 @@ export class PendingDuesComponent {
     displayPaymentDialog = false;
     partialPaymentAmount: number = 0;
     selectedDue: PendingDue | null = null;
-    paymentType: 'full' | 'partial' = 'partial'; // Added payment type choice
-    constructor(private confirmationService: ConfirmationService) {}
+    paymentType: 'full' | 'partial' = 'partial';
+    constructor(private confirmationService: ConfirmationService) { }
     items: MenuItem[] = [
         { label: 'Dashboard', url: '/dashboard' },
         { label: 'Pending Dues', url: '/dashboard/fees/pending-dues' }
@@ -115,6 +114,10 @@ export class PendingDuesComponent {
         { id: 3, fullname: 'Charlie Brown', course: 'Cybersecurity Basics', dueAmount: 450, dueDate: '2025-02-20', status: 'Partially Paid', paymentDate: '', lastReminder: '' },
         { id: 4, fullname: 'David Lee', course: 'Data Science', dueAmount: 700, dueDate: '2025-02-25', status: 'Cleared', paymentDate: '2025-02-02', lastReminder: '' }
     ]);
+
+    getCurrentDate(): string {
+        return new Date().toISOString().slice(0, 10);
+    }
 
     getReminderMessage(due: PendingDue): string {
         if (!due.lastReminder) {
@@ -159,35 +162,51 @@ export class PendingDuesComponent {
             });
         }
     }
-    processPartialPayment(partialPaymentAmount:number) {
-        if (!this.selectedDue || partialPaymentAmount <= 0){
-            console.log('Please enter a valid amount.',this.selectedDue,partialPaymentAmount);
-            return;
-        } 
-    
-        const { dueAmount, id, paymentDate } = this.selectedDue;
-    
-        if (this.partialPaymentAmount > dueAmount) {
-            console.log('Payment amount exceeds the due amount. Please enter a valid amount.');
+    sendReminder(user: PendingDue, event: Event) {
+
+        this.confirmationService.confirm({
+            target: event.target as EventTarget,
+            message: `Are you sure you want to send a reminder to <b>${user.fullname}</b>?`,
+            header: 'Send Reminder',
+            icon: 'pi pi-envelope',
+            rejectLabel: 'Cancel',
+            acceptLabel: 'Yes, Send',
+            rejectButtonStyleClass: 'p-button p-button-secondary',
+            acceptButtonStyleClass: 'p-button-success',
+            accept: () => {
+                this.pendingDues.update((dues) =>
+                    dues.map((due) => (due.id === user.id ? { ...due, lastReminder: this.getCurrentDate() } : due))
+                );
+            }
+        });
+    }
+
+    processPartialPayment(partialPaymentAmount: number) {
+        
+
+
+        if (!this.selectedDue) {
+            this.displayPaymentDialog = false;
             return;
         }
-    
+        const { dueAmount, id, paymentDate } = this.selectedDue;
         const newDueAmount = dueAmount - partialPaymentAmount;
         const newStatus = newDueAmount === 0 ? 'Cleared' : 'Partially Paid';
-        const newPaymentDate = newStatus === 'Cleared' ? new Date().toISOString().slice(0, 10) : paymentDate;
-    
+        const newPaymentDate = newStatus === 'Cleared' ? this.getCurrentDate() : paymentDate;
+
         this.pendingDues.update((dues) =>
             dues.map((due) => (due.id === id ? { ...due, dueAmount: newDueAmount, status: newStatus, paymentDate: newPaymentDate } : due))
         );
-    
+
+        this.partialPaymentAmount = 0;
         this.displayPaymentDialog = false;
     }
-    
+
 
     processPayment(user: PendingDue) {
         user.status = 'Cleared';
-        user.paymentDate = new Date().toISOString().slice(0, 10);
-        if(this.displayPaymentDialog){
+        user.paymentDate = this.getCurrentDate();
+        if (this.displayPaymentDialog) {
             this.displayPaymentDialog = false;
         }
     }

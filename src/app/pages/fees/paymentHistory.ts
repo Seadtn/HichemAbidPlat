@@ -2,12 +2,16 @@ import { Component, Signal, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-payment-history',
   standalone: true,
-  imports: [CommonModule, TableModule, ButtonModule],
+  imports: [CommonModule, TableModule, ButtonModule, BreadcrumbModule],
   template: `
+  <div class="card">
+  <p-breadcrumb [model]="items"></p-breadcrumb>
     <p-table [value]="paymentHistory()" [paginator]="true" [rows]="5">
       <ng-template pTemplate="header">
         <tr>
@@ -31,6 +35,7 @@ import { ButtonModule } from 'primeng/button';
         </tr>
       </ng-template>
     </p-table>
+    </div>
   `
 })
 export class PaymentHistoryComponent {
@@ -38,4 +43,8 @@ export class PaymentHistoryComponent {
     { studentName: 'Alice', course: 'Web Dev', amount: 500, date: '2025-01-10' },
     { studentName: 'Bob', course: 'Python', amount: 300, date: '2025-01-15' },
   ]);
+  items: MenuItem[] = [
+    { label: 'Dashboard', url: '/dashboard' },
+    { label: 'Payment History', url: '/dashboard/fees/payment-history' }
+  ];
 }

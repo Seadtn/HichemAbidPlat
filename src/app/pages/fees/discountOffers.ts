@@ -9,7 +9,7 @@ import { TagModule } from 'primeng/tag';
   standalone: true,
   imports: [CommonModule, TableModule, ButtonModule, TagModule],
   template: `
-    <div>
+  <div class="card">
       <p-table [value]="discounts()" [paginator]="true" [rows]="5">
         <ng-template pTemplate="header">
           <tr>

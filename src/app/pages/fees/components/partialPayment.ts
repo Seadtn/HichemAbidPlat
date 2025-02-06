@@ -27,7 +27,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 
                 <div *ngIf="paymentType === 'partial'">
                     <label for="partialAmount">Amount to Pay (TND):</label>
-                    <p-inputNumber id="partialAmount" [(ngModel)]="partialPaymentAmount" [min]="1" [max]="selectedDue?.dueAmount"></p-inputNumber>
+                    <p-inputNumber id="partialAmount" [(ngModel)]="partialPaymentAmount" [min]="1" ></p-inputNumber>
+                    <div *ngIf="invalidAmount" class="text-red-500">Please enter a valid amount.</div>
                 </div>
             </div>
 
@@ -48,7 +49,7 @@ export class PartialPaymentDialogComponent {
 
     paymentType: 'full' | 'partial' = 'full';
     partialPaymentAmount: number = 0;
-
+    invalidAmount: boolean = false;
     cancelPayment() {
         this.displayPaymentDialog = false;
         this.dialogClosed.emit();
@@ -56,14 +57,21 @@ export class PartialPaymentDialogComponent {
 
 
     onProcessPartialPayment() {
+        this.invalidAmount = false;
         if (this.paymentType === 'partial' && this.partialPaymentAmount > 0) {
-            console.log('Processing partial payment of', this.partialPaymentAmount);
-            this.processPartialPayment.emit(this.partialPaymentAmount);
+            if (this.selectedDue && this.partialPaymentAmount > this.selectedDue.dueAmount) {
+                console.log('Payment amount exceeds the due amount. Please enter a valid amount.');
+                this.invalidAmount = true;
+            } else {
+                console.log('Processing partial payment of', this.partialPaymentAmount);
+                this.processPartialPayment.emit(this.partialPaymentAmount );
+            }
+
         } else if (this.paymentType === 'full') {
-            this.processPayment.emit(); 
+            this.processPayment.emit();
         } else {
-            alert('Please enter a valid amount.');
+            this.invalidAmount = true;
         }
     }
-    
+
 }
