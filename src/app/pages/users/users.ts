@@ -10,11 +10,4 @@ import { TableDemo } from "./components/tabledemo";
     imports: [CommonModule, ButtonModule, MenuModule, TableDemo],
     template: ` <app-table-demo></app-table-demo> `
 })
-export class usersTable {
-    menu = null;
-
-    items = [
-        { label: 'Add New', icon: 'pi pi-fw pi-plus' },
-        { label: 'Remove', icon: 'pi pi-fw pi-trash' }
-    ];
-}
+export class usersTable {}

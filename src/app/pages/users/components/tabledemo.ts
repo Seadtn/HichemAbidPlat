@@ -15,7 +15,7 @@ import { RatingModule } from 'primeng/rating';
 import { RippleModule } from 'primeng/ripple';
 import { InputIconModule } from 'primeng/inputicon';
 import { TagModule } from 'primeng/tag';
-import { Representative, CustomerService, Customer } from '../../service/customer.service';
+import { CustomerService, Customer } from '../../service/customer.service';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { DropdownModule } from 'primeng/dropdown';
 import { IconFieldModule } from 'primeng/iconfield';
