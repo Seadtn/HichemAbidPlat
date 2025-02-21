@@ -119,8 +119,8 @@ export class PendingDuesComponent {
     ];
 
     pendingDues: WritableSignal<PendingDue[]> = signal([
-        { id: 1, fullname: 'Alice Johnson', course: 'Web Development', totalAmount: 500, restAmount: 0, paidAmount: 500, dueDate: '2025-02-10', status: 'Overdue', paymentDate: '', lastReminder: '2025-02-02' },
-        { id: 2, fullname: 'Bob Williams', course: 'Python for AI', totalAmount: 300, restAmount: 0, paidAmount: 300, dueDate: '2025-02-15', status: 'Pending', paymentDate: '', lastReminder: '' },
+        { id: 1, fullname: 'Alice Johnson', course: 'Web Development', totalAmount: 500, restAmount: 500, paidAmount: 0, dueDate: '2025-02-10', status: 'Overdue', paymentDate: '', lastReminder: '2025-02-02' },
+        { id: 2, fullname: 'Bob Williams', course: 'Python for AI', totalAmount: 300, restAmount: 300, paidAmount: 0, dueDate: '2025-02-15', status: 'Pending', paymentDate: '', lastReminder: '' },
         { id: 3, fullname: 'Charlie Brown', course: 'Cybersecurity Basics', totalAmount: 450, restAmount: 150, paidAmount: 300, dueDate: '2025-02-20', status: 'Partially Paid', paymentDate: '', lastReminder: '' },
         { id: 4, fullname: 'David Lee', course: 'Data Science', totalAmount: 700, restAmount: 0, paidAmount: 700, dueDate: '2025-02-25', status: 'Cleared', paymentDate: '2025-02-02', lastReminder: '' },
         { id: 5, fullname: 'Emma Wilson', course: 'Machine Learning', totalAmount: 800, restAmount: 400, paidAmount: 400, dueDate: '2025-03-05', status: 'Partially Paid', paymentDate: '2025-02-10', lastReminder: '2025-02-15' },
