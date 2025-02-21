@@ -41,7 +41,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 })
 export class PartialPaymentDialogComponent {
     @Input() displayPaymentDialog: boolean = false;
-    @Input() selectedDue: { dueAmount: number, status?: string, paymentDate?: string } | null = null;
+    @Input() selectedDue: {paidAmount:number ,totalAmount: number, status?: string, paymentDate?: string } | null = null;
     @Output() paymentProcessed: EventEmitter<void> = new EventEmitter();
     @Output() dialogClosed: EventEmitter<void> = new EventEmitter();
     @Output() processPartialPayment: EventEmitter<number> = new EventEmitter();
@@ -59,7 +59,7 @@ export class PartialPaymentDialogComponent {
     onProcessPartialPayment() {
         this.invalidAmount = false;
         if (this.paymentType === 'partial' && this.partialPaymentAmount > 0) {
-            if (this.selectedDue && this.partialPaymentAmount > this.selectedDue.dueAmount) {
+            if (this.selectedDue && this.partialPaymentAmount > this.selectedDue.totalAmount - this.selectedDue.paidAmount) {
                 console.log('Payment amount exceeds the due amount. Please enter a valid amount.');
                 this.invalidAmount = true;
             } else {
