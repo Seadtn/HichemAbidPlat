@@ -83,7 +83,6 @@ export class AppMenu {
                 label: 'Fees Management',
                 items: [
                     { label: 'Pending Dues', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['/dashboard/fees/pending-dues'] },
-                    { label: 'Payment History', icon: 'pi pi-fw pi-clock', routerLink: ['/dashboard/fees/payment-history'] },
                     { label: 'Discounts & Offers', icon: 'pi pi-fw pi-tag', routerLink: ['/dashboard/fees/discounts'] },
                     { label: 'Reports', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/dashboard/fees/reports'] }
                 ]
