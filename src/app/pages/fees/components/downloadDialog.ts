@@ -145,19 +145,19 @@ export class DownloadDialogFilterComponent {
             { header: 'Last Reminder', dataKey: 'lastReminder' }
         ];
         
-        const rows = filteredDues.map((due) => ({
-            id: due.id,
-            fullname: due.fullname,
-            course: due.course,
-            totalAmount: due.totalAmount,
-            restAmount: due.restAmount,
-            paidAmount: due.paidAmount,
-            dueDate: due.dueDate,
-            status: due.status,
-            paymentDate: due.paymentDate || 'N/A',
-            lastReminder: due.lastReminder || 'N/A'
-        }));
-        //debugger;
+        const rows = filteredDues.map((due) => ([
+            due.id,
+            due.fullname,
+            due.course,
+            due.totalAmount,
+            due.restAmount,
+            due.paidAmount,
+            due.dueDate,
+            due.status,
+            due.paymentDate || 'N/A',
+            due.lastReminder || 'N/A'
+        ]));
+
         autoTable(doc, {
             head: [columns.map((col) => col.header)],
             body: rows,
