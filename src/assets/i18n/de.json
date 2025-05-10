@@ -2,13 +2,14 @@
     "landingPage": {
         "topbar": {
             "home": "Zuhause",
-            "about": "Über",
+            "about": "Über uns",
             "services": "Dienstleistungen",
+            "partnership": "Partnerschaft",
             "portfolio": "Portfolio",
             "contact": "Kontakt",
             "login": "Anmeldung",
             "register": "Registrieren",
-            "auto" :"Fahrschule"          
+            "auto" :"Akademisches\u00A0Zentrum"          
         }
     }
 }
